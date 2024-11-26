@@ -204,7 +204,7 @@ export default function CareersPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-4xl sm:text-3xl xs:text-2xl font-bold mb-6 text-white bg-clip-text text-transparent bg-gradient-to-r from-white via-[#0ea4e9] to-white whitespace-nowrap">Careers @ BlueBuck</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white bg-clip-text text-transparent bg-gradient-to-r from-white via-[#0ea4e9] to-white break-words">Careers @ BlueBuck</h1>
             
             <div className="mb-12">
               <div className="p-8 rounded-lg bg-gradient-to-br from-[#0F2645]/95 via-[#0A1525]/98 to-black border border-white/10 relative overflow-hidden">
