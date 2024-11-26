@@ -280,19 +280,20 @@ export function Navigation() {
         <div className="flex md:hidden items-center space-x-4">
           <Button
             variant="ghost"
-            className="text-white hover:bg-[#0ea4e9]/10"
+            className="text-white hover:bg-[#0ea4e9]/10 p-3 rounded-lg bg-[#0ea4e9]/5 fixed right-4 top-4 z-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             <svg
-              className="h-6 w-6"
+              className="h-8 w-8 transform transition-transform duration-200"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              strokeWidth={2}
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
                 d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
               />
             </svg>
