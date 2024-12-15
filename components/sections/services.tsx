@@ -75,6 +75,24 @@ export function ServicesSection() {
     <section className="py-24 sm:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-black via-[#0A1525] to-[#0F2645]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,215,0,0.02),transparent_80%)]"></div>
+      
+      {/* Formula Background */}
+      <div className="absolute inset-x-0 top-0 h-full overflow-hidden">
+        <div 
+          className="absolute left-1/2 top-0 w-full max-w-[800px] -translate-x-1/2 transform opacity-[0.15]"
+          style={{ 
+            width: 'min(800px, 100vw)',
+            filter: 'brightness(2) contrast(0.8)'
+          }}
+        >
+          <img 
+            src="/formula.svg" 
+            alt="" 
+            className="w-full"
+          />
+        </div>
+      </div>
+
       <div className="container relative z-10">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center">
@@ -150,20 +168,19 @@ export function ServicesSection() {
                 </motion.p>
                 {service.showLearnMore && (
                   <motion.div
-                    className="mt-4 group"
+                    className="mt-6 group"
                     initial={{ opacity: 0.8 }}
                     whileHover={{ opacity: 1 }}
                   >
                     <Link 
                       href={service.href}
-                      className="inline-flex items-center text-sm font-medium text-blue-500 group-hover:text-blue-600"
+                      className="inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-navy-800 to-navy-900 text-white text-sm font-medium transition-all duration-300 hover:from-navy-700 hover:to-navy-800 hover:shadow-lg group"
                     >
                       <span className="relative">
                         Learn More
-                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
                       </span>
                       <motion.span
-                        className="ml-1"
+                        className="ml-2"
                         initial={{ x: 0 }}
                         whileHover={{ x: 5 }}
                         transition={{ duration: 0.2 }}

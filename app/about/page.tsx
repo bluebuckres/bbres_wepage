@@ -143,7 +143,7 @@ export default function AboutPage() {
                 <br /><br />
                 We are constantly fighting with the world's top minds, so we approach the market like warriors on a battlefield.
               </p>
-              <div className="mt-10">
+              <div className="mt-10 relative">
                 <Button 
                   asChild 
                   size="lg"
@@ -154,6 +154,20 @@ export default function AboutPage() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[120%] w-full max-w-lg hidden md:block">
+                  <img 
+                    src="https://cdn.prod.website-files.com/635002cac2651040225422cf/635002cac26510e44c54232e_Union.svg"
+                    alt=""
+                    className="w-full h-auto opacity-50"
+                  />
+                </div>
+                <div className="absolute bottom-0 left-[85%] -translate-x-1/2 translate-y-[40%] w-full max-w-[180px] md:hidden">
+                  <img 
+                    src="https://cdn.prod.website-files.com/635002cac2651040225422cf/635002cac26510e44c54232e_Union.svg"
+                    alt=""
+                    className="w-full h-auto opacity-30"
+                  />
+                </div>
               </div>
             </motion.div>
 
@@ -214,33 +228,25 @@ export default function AboutPage() {
                       }
                     }}
                   >
-                    <div className="text-center">
+                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3 text-center max-w-5xl mx-auto">
                       {["The", "Future", "Belongs", "to", "Those", "Who", "Code", "It"].map((word, i) => (
-                        <motion.span
+                        <motion.div
                           key={i}
-                          className="inline-block"
-                          variants={{
-                            hidden: { 
-                              y: 100,
-                              opacity: 0,
-                              rotateX: -80
-                            },
-                            visible: {
-                              y: 0,
-                              opacity: 1,
-                              rotateX: 0,
-                              transition: {
-                                type: "spring",
-                                damping: 12,
-                                stiffness: 100
-                              }
-                            }
+                          className="relative"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 100,
+                            damping: 10,
+                            mass: 0.2,
+                            delay: i * 0.08
                           }}
                         >
-                          <span className="inline-block text-5xl md:text-6xl lg:text-7xl font-cinzel font-normal tracking-wider leading-tight mx-[0.2em] premium-text">
+                          <span className="inline-block mx-1 text-4xl sm:text-5xl md:text-6xl font-bold text-white whitespace-nowrap tracking-wide">
                             {word}
                           </span>
-                        </motion.span>
+                        </motion.div>
                       ))}
                     </div>
                   </motion.div>
@@ -329,29 +335,40 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-16">
-            {values.map((value, index) => (
+            {values.map((value, i) => (
               <motion.div
-                key={value.title}
+                key={i}
+                className="relative group overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-8 rounded-lg bg-gradient-to-br from-[#0F2645]/80 via-[#0A1525]/90 to-black/95 backdrop-blur-lg border border-white/10 relative overflow-hidden"
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: i * 0.1,
+                  duration: 0.5,
+                  ease: [0.21, 0.47, 0.32, 0.98]
+                }}
               >
-                {/* Accent lines */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#0ea4e9] to-transparent" />
-                  <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#0ea4e9] to-transparent" />
-                  <div className="absolute top-0 left-0 w-[1px] h-full bg-gradient-to-b from-transparent via-[#0ea4e9] to-transparent" />
-                  <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-transparent via-[#0ea4e9] to-transparent" />
+                <div className="p-6 rounded-xl bg-gradient-to-b from-blue-950/50 to-blue-900/30 backdrop-blur-sm relative">
+                  {/* Laser beam borders with rounded corners */}
+                  <div className="absolute inset-0 rounded-xl">
+                    <div className="absolute top-0 left-[2px] right-[2px] h-[1px] animate-border-flow bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
+                    <div className="absolute bottom-0 left-[2px] right-[2px] h-[1px] animate-border-flow bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
+                    <div className="absolute top-[2px] bottom-[2px] left-0 w-[1px] animate-border-flow-vertical bg-gradient-to-b from-transparent via-blue-400/40 to-transparent" />
+                    <div className="absolute top-[2px] bottom-[2px] right-0 w-[1px] animate-border-flow-vertical bg-gradient-to-b from-transparent via-blue-400/40 to-transparent" />
+                    
+                    {/* Rounded corner glows */}
+                    <div className="absolute top-0 left-0 w-2 h-2 rounded-tl-xl bg-blue-400/20" />
+                    <div className="absolute top-0 right-0 w-2 h-2 rounded-tr-xl bg-blue-400/20" />
+                    <div className="absolute bottom-0 left-0 w-2 h-2 rounded-bl-xl bg-blue-400/20" />
+                    <div className="absolute bottom-0 right-0 w-2 h-2 rounded-br-xl bg-blue-400/20" />
+                  </div>
+                  
+                  <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {value.description}
+                  </p>
                 </div>
-
-                <dt className="text-lg font-semibold leading-7 text-white">
-                  {value.title}
-                </dt>
-                <dd className="mt-4 text-base leading-7 text-gray-300">
-                  {value.description}
-                </dd>
               </motion.div>
             ))}
           </div>

@@ -4,6 +4,17 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ContactPage() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+
+    const mailtoLink = `mailto:connect@bluebuckresearch.com?subject=Message from ${name}&body=From: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className="relative isolate overflow-hidden min-h-screen">
       {/* Futuristic Background */}
@@ -30,12 +41,12 @@ export default function ContactPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold relative inline-block">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-[#0ea4e9] to-white">
-                Get in Touch
+                Let's Meet Over Coffee
               </span>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-[2px] bg-gradient-to-r from-transparent via-[#0ea4e9] to-transparent" />
             </h1>
             <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-              Have questions or ideas? We'd love to connect with you. Reach out to us through any of the channels below.
+              Have ideas to discuss? We'd love to chat over a cup of coffee. Reach out to us through any of the channels below.
             </p>
           </div>
           
@@ -89,8 +100,8 @@ export default function ContactPage() {
                   <a href="mailto:connect@bluebuckresearch.com"
                     className="group flex items-center space-x-3 p-3 rounded-lg bg-[#0F2645]/50 hover:bg-[#0F2645] transition-all duration-300"
                   >
-                    <Mail className="h-5 w-5 text-[#0ea4e9]" />
-                    <span className="text-gray-300 group-hover:text-[#0ea4e9] transition-colors duration-300">
+                    <Mail className="h-5 w-5 flex-shrink-0 text-[#0ea4e9]" />
+                    <span className="text-gray-300 group-hover:text-[#0ea4e9] transition-colors duration-300 break-all">
                       connect@bluebuckresearch.com
                     </span>
                   </a>
@@ -115,7 +126,7 @@ export default function ContactPage() {
 
               <div className="relative">
                 <h3 className="text-xl font-semibold mb-6 text-white">Send us a Message</h3>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">
                       Your Name
@@ -123,6 +134,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       className="w-full p-3 bg-[#0F2645]/50 border border-[#0ea4e9]/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#0ea4e9]/50 transition-colors duration-300"
                       placeholder="John Doe"
                       required
@@ -136,6 +148,7 @@ export default function ContactPage() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       className="w-full p-3 bg-[#0F2645]/50 border border-[#0ea4e9]/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#0ea4e9]/50 transition-colors duration-300"
                       placeholder="john@example.com"
                       required
@@ -144,10 +157,11 @@ export default function ContactPage() {
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-300">
-                      Your Message
+                      Message
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={4}
                       className="w-full p-3 bg-[#0F2645]/50 border border-[#0ea4e9]/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#0ea4e9]/50 transition-colors duration-300 resize-none"
                       placeholder="Tell us what's on your mind..."

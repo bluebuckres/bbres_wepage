@@ -14,6 +14,7 @@ interface JobPosition {
   department: string;
   type: string;
   isNew?: boolean;
+  isUrgent?: boolean;
   description: {
     locations?: string[];
     division?: string;
@@ -26,11 +27,60 @@ interface JobPosition {
 
 const positions: JobPosition[] = [
   {
+    title: "Social Media Manager",
+    location: "Kolkata",
+    package: "4-12 LPA",
+    department: "Marketing",
+    type: "Full Time",
+    isUrgent: true,
+    description: {
+      locations: ["Kolkata"],
+      division: "Marketing",
+      salary: "4-12 LPA",
+      responsibilities: [
+        "Manage multiple social media accounts across platforms",
+        "Execute paid social media campaigns",
+        "Track and optimize campaign performance metrics"
+      ],
+      requirements: [
+        "2+ years experience in social media management",
+        "Strong understanding of paid social advertising",
+        "Experience with social media analytics and reporting"
+      ],
+      howToApply: "Send your resume to careers@bluebuckresearch.com with the unique string \"SMM2024\" included in the body of the email. Please include links to social media accounts you've managed."
+    },
+  },
+  {
+    title: "Full Stack Web Developer",
+    location: "Kolkata",
+    package: "6-24 LPA",
+    department: "Technology",
+    type: "Full Time",
+    isUrgent: true,
+    description: {
+      locations: ["Kolkata"],
+      division: "Technology",
+      salary: "6-24 LPA",
+      responsibilities: [
+        "Design and build scalable e-commerce marketplace solutions",
+        "Develop and maintain both frontend and backend components",
+        "Implement robust payment and transaction systems"
+      ],
+      requirements: [
+        "1+ year of experience in full-stack development OR significant GitHub portfolio",
+        "Strong proficiency in React.js/Next.js and Node.js",
+        "Experience with e-commerce platforms or marketplace development"
+      ],
+      howToApply: "Send your resume to careers@bluebuckresearch.com with the unique string \"FSWD2024\" included in the body of the email. Please include links to your GitHub projects or portfolio."
+    },
+  },
+  {
     title: "Software Engineer",
     location: "Kolkata",
     package: "6-24 LPA",
     department: "Technology",
     type: "Full Time",
+    isUrgent: true,
     description: {
       locations: ["Kolkata"],
       division: "Technology",
@@ -269,7 +319,7 @@ export default function CareersPage() {
           >
             <div className="text-center mb-16 relative">
               {/* Background glow effect */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(14,164,233,0.1)_0%,transparent_60%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(14,164,233,0.1),transparent_60%)]" />
               
               {/* Title with gradient and glow */}
               <motion.h2 
@@ -328,9 +378,20 @@ export default function CareersPage() {
                                 <div className="flex items-center justify-between mb-2">
                                   <h4 className="text-xl font-semibold text-white">{position.title}</h4>
                                   {position.isNew && (
-                                    <span className="px-2 py-1 text-xs font-medium bg-[#0ea4e9] text-white rounded-full animate-pulse">
-                                      New Role
-                                    </span>
+                                    <div className="relative">
+                                      <span className="absolute -inset-3 bg-[#0ea4e9]/20 blur-lg rounded-full"></span>
+                                      <span className="relative px-3 py-1 text-xs font-medium bg-gradient-to-r from-[#0ea4e9] to-blue-600 text-white rounded-full border border-[#0ea4e9]/50 animate-badge-glow">
+                                        New Opening
+                                      </span>
+                                    </div>
+                                  )}
+                                  {position.isUrgent && (
+                                    <div className="relative">
+                                      <span className="absolute -inset-3 bg-red-500/20 blur-lg rounded-full"></span>
+                                      <span className="relative px-3 py-1 text-xs font-medium bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-full border border-red-500/50 animate-urgent-badge">
+                                        Immediate Opening
+                                      </span>
+                                    </div>
                                   )}
                                 </div>
                               </div>
@@ -369,115 +430,160 @@ export default function CareersPage() {
                           </div>
 
                           {/* Expandable Content */}
-                          {expandedJob === position.title && (
-                            <div className="mt-6 pt-6 border-t border-white/10">
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ 
+                              height: expandedJob === position.title ? "auto" : 0,
+                              opacity: expandedJob === position.title ? 1 : 0
+                            }}
+                            transition={{
+                              height: { duration: 0.3, ease: [0.33, 1, 0.68, 1] },
+                              opacity: { duration: 0.2, delay: expandedJob === position.title ? 0.1 : 0 }
+                            }}
+                            className="overflow-hidden"
+                          >
+                            <div className={`mt-6 pt-6 border-t border-white/10 ${expandedJob === position.title ? 'block' : 'hidden'}`}>
                               {/* Additional Details Section */}
-                              {(position.description.division || position.description.locations || position.description.salary) && (
-                                <div className="mb-6">
-                                  <h5 className="text-lg font-semibold text-white mb-3">Additional Details</h5>
-                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    {position.description.division && (
-                                      <div>
-                                        <span className="text-gray-400">Division:</span>
-                                        <p className="text-white">{position.description.division}</p>
-                                      </div>
-                                    )}
-                                    {position.description.locations && (
-                                      <div>
-                                        <span className="text-gray-400">Locations:</span>
-                                        <p className="text-white">{position.description.locations.join(", ")}</p>
-                                      </div>
-                                    )}
-                                    {position.description.salary && (
-                                      <div>
-                                        <span className="text-gray-400">Salary:</span>
-                                        <p className="text-white">{position.description.salary}</p>
-                                      </div>
-                                    )}
+                              <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.3, delay: 0.1 }}
+                              >
+                                {(position.description.division || position.description.locations || position.description.salary) && (
+                                  <div className="mb-6">
+                                    <h5 className="text-lg font-semibold text-white mb-3">Additional Details</h5>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                      {position.description.division && (
+                                        <div>
+                                          <span className="text-gray-400">Division:</span>
+                                          <p className="text-white">{position.description.division}</p>
+                                        </div>
+                                      )}
+                                      {position.description.locations && (
+                                        <div>
+                                          <span className="text-gray-400">Locations:</span>
+                                          <p className="text-white">{position.description.locations.join(", ")}</p>
+                                        </div>
+                                      )}
+                                      {position.description.salary && (
+                                        <div>
+                                          <span className="text-gray-400">Salary:</span>
+                                          <p className="text-white">{position.description.salary}</p>
+                                        </div>
+                                      )}
+                                    </div>
                                   </div>
-                                </div>
-                              )}
+                                )}
+                              </motion.div>
 
                               {/* Responsibilities Section */}
-                              {position.description.responsibilities && (
-                                <div className="mb-6">
-                                  <h5 className="text-lg font-semibold text-white mb-3">Responsibilities</h5>
-                                  <ul className="list-disc list-inside text-gray-300 space-y-2">
-                                    {position.description.responsibilities.map((resp, idx) => (
-                                      <li key={idx}>{resp}</li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              )}
+                              <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.3, delay: 0.2 }}
+                              >
+                                {position.description.responsibilities && (
+                                  <div className="mb-6">
+                                    <h5 className="text-lg font-semibold text-white mb-3">Responsibilities</h5>
+                                    <ul className="list-disc list-inside text-gray-300 space-y-2">
+                                      {position.description.responsibilities.map((resp, idx) => (
+                                        <li key={idx}>{resp}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                              </motion.div>
 
                               {/* Requirements Section */}
-                              {position.description.requirements && (
-                                <div className="mb-6">
-                                  <h5 className="text-lg font-semibold text-white mb-3">Requirements</h5>
-                                  <ul className="list-disc list-inside text-gray-300 space-y-2">
-                                    {position.description.requirements.map((req, idx) => (
-                                      <li key={idx}>{req}</li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              )}
+                              <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.3, delay: 0.3 }}
+                              >
+                                {position.description.requirements && (
+                                  <div className="mb-6">
+                                    <h5 className="text-lg font-semibold text-white mb-3">Requirements</h5>
+                                    <ul className="list-disc list-inside text-gray-300 space-y-2">
+                                      {position.description.requirements.map((req, idx) => (
+                                        <li key={idx}>{req}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                              </motion.div>
 
                               {/* How To Apply Section */}
-                              {position.description.howToApply && (
-                                <div className="mb-6">
-                                  <h5 className="text-lg font-semibold text-white mb-3">How To Apply</h5>
-                                  <p className="text-gray-300">{position.description.howToApply}</p>
-                                </div>
-                              )}
+                              <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.3, delay: 0.4 }}
+                              >
+                                {position.description.howToApply && (
+                                  <div className="mb-6">
+                                    <h5 className="text-lg font-semibold text-white mb-3">How To Apply</h5>
+                                    <p className="text-gray-300">{position.description.howToApply}</p>
+                                  </div>
+                                )}
+                              </motion.div>
 
                               {/* Action Buttons */}
-                              <div className="mt-6 flex flex-wrap gap-4">
-                                <Button 
-                                  variant="default"
-                                  className="bg-[#0ea4e9] hover:bg-[#0284c7] text-white"
-                                  onClick={() => {
-                                    if (position.title === "Software Engineer") {
-                                      router.push("/careers/software-engineer");
-                                    } else if (position.title === "Quantitative Researcher") {
-                                      router.push("/careers/quantitative-researcher");
-                                    } else if (position.title === "Quant Developer (C++/Python)") {
-                                      router.push("/careers/quant-developer");
-                                    } else if (position.title === "Data Engineer") {
-                                      router.push("/careers/data-engineer");
-                                    } else if (position.title === "Content Creator") {
-                                      router.push("/careers/content-creator");
-                                    } else if (position.title === "Video Editor") {
-                                      router.push("/careers/video-editor");
-                                    }
-                                  }}
-                                >
-                                  View Full Details
-                                </Button>
-                                <Button 
-                                  className="bg-[#0ea4e9] text-white hover:bg-[#0ea4e9]/90 transition-colors duration-300"
-                                  onClick={() => {
-                                    let emailId = "";
-                                    if (position.title === "Software Engineer") {
-                                      emailId = "SE2024";
-                                    } else if (position.title === "Quantitative Researcher") {
-                                      emailId = "X4413";
-                                    } else if (position.title === "Quant Developer (C++/Python)") {
-                                      emailId = "QD2024";
-                                    } else if (position.title === "Data Engineer") {
-                                      emailId = "DE2024";
-                                    } else if (position.title === "Content Creator") {
-                                      emailId = "CC2024";
-                                    } else if (position.title === "Video Editor") {
-                                      emailId = "VE2024";
-                                    }
-                                    window.location.href = `mailto:careers@bluebuckresearch.com?subject=Application for ${position.title}&body=${emailId}`;
-                                  }}
-                                >
-                                  Apply Now
-                                </Button>
-                              </div>
+                              <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.3, delay: 0.5 }}
+                              >
+                                <div className="flex gap-4">
+                                  <Button 
+                                    variant="default"
+                                    className="bg-[#0ea4e9] hover:bg-[#0284c7] text-white"
+                                    onClick={() => {
+                                      if (position.title === "Software Engineer") {
+                                        router.push("/careers/software-engineer");
+                                      } else if (position.title === "Full Stack Web Developer") {
+                                        router.push("/careers/full-stack-developer");
+                                      } else if (position.title === "Social Media Manager") {
+                                        router.push("/careers/social-media-manager");
+                                      } else if (position.title === "Quantitative Researcher") {
+                                        router.push("/careers/quantitative-researcher");
+                                      } else if (position.title === "Data Engineer") {
+                                        router.push("/careers/data-engineer");
+                                      } else if (position.title === "Content Creator") {
+                                        router.push("/careers/content-creator");
+                                      } else if (position.title === "Video Editor") {
+                                        router.push("/careers/video-editor");
+                                      }
+                                    }}
+                                  >
+                                    View Full Details
+                                  </Button>
+                                  <Button 
+                                    className="bg-[#0ea4e9] text-white hover:bg-[#0ea4e9]/90 transition-colors duration-300"
+                                    onClick={() => {
+                                      let emailId = "";
+                                      if (position.title === "Software Engineer") {
+                                        emailId = "SE2024";
+                                      } else if (position.title === "Full Stack Web Developer") {
+                                        emailId = "FSWD2024";
+                                      } else if (position.title === "Social Media Manager") {
+                                        emailId = "SMM2024";
+                                      } else if (position.title === "Quantitative Researcher") {
+                                        emailId = "X4413";
+                                      } else if (position.title === "Data Engineer") {
+                                        emailId = "DE2024";
+                                      } else if (position.title === "Content Creator") {
+                                        emailId = "CC2024";
+                                      } else if (position.title === "Video Editor") {
+                                        emailId = "VE2024";
+                                      }
+                                      window.location.href = `mailto:careers@bluebuckresearch.com?subject=Application for ${position.title}&body=${emailId}`;
+                                    }}
+                                  >
+                                    Apply Now
+                                  </Button>
+                                </div>
+                              </motion.div>
                             </div>
-                          )}
+                          </motion.div>
                         </div>
                       </Card>
                     </motion.div>

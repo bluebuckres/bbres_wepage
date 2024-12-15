@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const navigation = [
   { name: "Solutions", href: "/solutions/trading-systems" },
-  { name: "Career", href: "/careers" },
+  { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -23,7 +23,7 @@ export function Footer() {
               height={32}
               className="h-8 w-auto"
             />
-            <span className="text-2xl text-white font-['Cormorant_Garamond'] font-medium">BlueBuck</span>
+            <span className="text-2xl text-white font-['Cormorant_Garamond'] !font-medium">BlueBuck</span>
           </Link>
           <nav className="mt-8">
             <ul className="flex flex-wrap justify-center gap-6">
@@ -42,7 +42,7 @@ export function Footer() {
         </div>
         <div className="mt-8 border-t border-[#0ea4e9]/10 pt-8 text-center">
           <p className="text-xs leading-5 text-gray-400">
-            &copy; {new Date().getFullYear()} BlueBuck Research LLP. All rights reserved.
+            &copy; {new Date().getFullYear()} BlueBuck Research. All rights reserved.
           </p>
         </div>
       </div>

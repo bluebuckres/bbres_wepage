@@ -21,6 +21,7 @@ interface AlphaGenerationDetails {
   title: string;
   subtitle: string;
   overview: string;
+  disclaimer: string;
   performanceMetrics: {
     title: string;
     metrics: string[];
@@ -48,11 +49,12 @@ const alphaGenerationDetails: AlphaGenerationDetails = {
   title: "Alpha-as-a-Service",
   subtitle: "Sophisticated quantitative strategies leveraging advanced mathematics, statistical methods, and machine learning",
   overview: "We develop and deploy rigorously backtested strategies across diverse market regimes to deliver consistent risk-adjusted returns.",
+  disclaimer: "This service is not for retail investors.",
   performanceMetrics: {
     title: "Performance Metrics (2022-2024)",
     metrics: [
       "Consistent monthly positive returns",
-      "Average Annual Return: 35-40%*",
+      "Average Annual Return: 50-70%*",
       "Sharpe Ratio: 2.0-2.4",
       "Sortino Ratio: 2.2-2.6",
       "Max Drawdown: < 15%",
@@ -236,7 +238,8 @@ export default function AlphaGenerationPage() {
               Alpha&#8209;as&#8209;a&#8209;Service
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">{alphaGenerationDetails.subtitle}</p>
-            <p className="text-gray-400 mb-16 max-w-2xl mx-auto">{alphaGenerationDetails.overview}</p>
+            <p className="text-gray-400 mb-2 max-w-2xl mx-auto">{alphaGenerationDetails.overview}</p>
+            <p className="text-amber-500 font-medium bg-amber-500/10 py-1 px-3 rounded-md inline-block max-w-2xl mx-auto mb-16">{alphaGenerationDetails.disclaimer}</p>
           </motion.div>
 
           <motion.div

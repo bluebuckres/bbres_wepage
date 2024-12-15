@@ -93,10 +93,21 @@ const config: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        scrollWheel: {
+          '0%': {
+            transform: 'translateX(-50%) translateY(0)',
+            opacity: '1'
+          },
+          '100%': {
+            transform: 'translateX(-50%) translateY(12px)',
+            opacity: '0'
+          }
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        scrollWheel: 'scrollWheel 1.5s cubic-bezier(0.76, 0, 0.3, 1) infinite'
       },
     },
   },

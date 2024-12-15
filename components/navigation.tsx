@@ -146,7 +146,7 @@ export function Navigation() {
                         duration: 1.2,
                         ease: "easeInOut"
                       }}
-                      className="absolute left-0 text-2xl text-white font-['Cormorant_Garamond'] font-medium"
+                      className="absolute left-0 text-2xl text-white font-['Cormorant_Garamond'] !font-medium tracking-wide"
                     >
                       BlueBuck
                     </motion.span>
@@ -158,7 +158,7 @@ export function Navigation() {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        className="absolute left-0 text-base text-white/80 font-['Inter'] font-light tracking-wide whitespace-pre-wrap"
+                        className="absolute left-0 text-base text-white/80 font-['Cormorant_Garamond'] font-light tracking-wide whitespace-pre-wrap"
                       >
                         {sloganMobile}
                       </motion.div>
@@ -172,7 +172,7 @@ export function Navigation() {
                         className="absolute left-0 overflow-hidden whitespace-nowrap"
                       >
                         <motion.span
-                          className="text-base text-white/80 font-['Inter'] font-light tracking-wide"
+                          className="text-base text-white/80 font-['Cormorant_Garamond'] font-light tracking-wide"
                         >
                           {sloganDesktop.split("").map((char, index) => (
                             <motion.span
