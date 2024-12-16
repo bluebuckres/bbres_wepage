@@ -45,24 +45,26 @@ export function HeroSection() {
       {/* Pattern SVG - Top Left */}
       <div className="absolute left-0 top-0 z-0 w-1/2 md:w-1/3 lg:w-1/4 opacity-20">
         <Image
-          src="/Pattern.svg"
+          src="https://cdn.prod.website-files.com/635002cac2651040225422cf/635002cac26510be4954231f_Pattern.svg"
           alt="Pattern"
           width={600}
           height={600}
           className="w-full h-auto object-contain transform -translate-x-1/4"
           priority
+          unoptimized={true}
         />
       </div>
 
       {/* Pattern SVG - Bottom Right */}
       <div className="absolute right-0 bottom-0 z-0 w-1/2 md:w-1/3 lg:w-1/4 opacity-20">
         <Image
-          src="/Pattern.svg"
+          src="https://cdn.prod.website-files.com/635002cac2651040225422cf/635002cac26510be4954231f_Pattern.svg"
           alt="Pattern"
           width={600}
           height={600}
           className="w-full h-auto object-contain transform translate-x-1/4 rotate-180"
           priority
+          unoptimized={true}
         />
       </div>
 
