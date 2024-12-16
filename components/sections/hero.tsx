@@ -43,16 +43,14 @@ export function HeroSection() {
       <ParticlesBackground />
 
       {/* Pattern SVG - Top Left */}
-      <div className="absolute left-0 top-0 z-0 w-[400px] max-w-[40%]">
+      <div className="absolute left-0 top-0 z-0 w-1/2 md:w-1/3 lg:w-1/4 opacity-20">
         <Image
           src="/Pattern.svg"
-          alt=""
-          width={400}
-          height={400}
-          className="w-full h-auto object-contain opacity-10"
+          alt="Pattern"
+          width={600}
+          height={600}
+          className="w-full h-auto object-contain transform -translate-x-1/4"
           priority
-          loading="eager"
-          aria-hidden="true"
         />
       </div>
 
