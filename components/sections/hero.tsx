@@ -46,11 +46,13 @@ export function HeroSection() {
       <div className="absolute left-0 top-0 z-0 w-[400px] max-w-[40%]">
         <Image
           src="/Pattern.svg"
-          alt="Pattern"
+          alt=""
           width={400}
           height={400}
           className="w-full h-auto object-contain opacity-10"
           priority
+          loading="eager"
+          aria-hidden="true"
         />
       </div>
 
