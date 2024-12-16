@@ -59,13 +59,10 @@ export default function SocialMediaManagerPage() {
             Back to Careers
           </button>
 
-          <div className="flex items-center justify-between mb-6">
-            <h1 className="text-4xl font-bold text-white">{jobDetails.title}</h1>
-            <div className="relative">
-              <span className="absolute -inset-3 bg-red-500/20 blur-lg rounded-full"></span>
-              <span className="relative px-3 py-1 text-xs font-medium bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-full border border-red-500/50 animate-urgent-badge">
-                Immediate Opening
-              </span>
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <h1 className="text-3xl sm:text-4xl font-bold text-white">{jobDetails.title}</h1>
+            <div className="inline-flex items-center px-3 py-1 text-sm font-medium bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-full shadow-lg shadow-orange-500/20">
+              Immediate Opening
             </div>
           </div>
 

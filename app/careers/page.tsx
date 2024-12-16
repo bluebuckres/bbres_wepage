@@ -375,8 +375,10 @@ export default function CareersPage() {
                           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                             <div className="flex-grow space-y-4">
                               <div className="bg-white/5 backdrop-blur-lg rounded-lg p-6 border border-white/10">
-                                <div className="flex items-center justify-between mb-2">
-                                  <h4 className="text-xl font-semibold text-white">{position.title}</h4>
+                                <div className="flex flex-wrap items-center gap-3 mb-4">
+                                  <h4 className="text-2xl sm:text-3xl font-semibold text-white">
+                                    {position.title}
+                                  </h4>
                                   {position.isNew && (
                                     <div className="relative">
                                       <span className="absolute -inset-3 bg-[#0ea4e9]/20 blur-lg rounded-full"></span>

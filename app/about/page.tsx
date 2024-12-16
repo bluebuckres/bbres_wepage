@@ -53,8 +53,18 @@ export default function AboutPage() {
               <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-transparent via-[#0ea4e9] to-transparent" />
             </div>
 
+            <style jsx global>{`
+              @font-face {
+                font-family: 'Cormorant';
+                src: url('/fonts/Cormorant-Regular.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap;
+              }
+            `}</style>
+
             <motion.h1 
-              className="text-5xl font-['Cormorant_Garamond'] font-medium tracking-tight text-white sm:text-6xl relative overflow-hidden py-8"
+              className="text-5xl font-['Cormorant'] font-medium tracking-tight text-white sm:text-6xl relative overflow-hidden py-8"
             >
               <div className="flex flex-wrap justify-center">
                 {["We", "Make", "Machines", "That", "Make", "Money"].map((word, wordIndex) => (
@@ -211,63 +221,107 @@ export default function AboutPage() {
                   type: "spring",
                   bounce: 0.2
                 }}
-                className="relative bg-gradient-to-br from-[#0F2645]/80 via-[#0A1525]/90 to-black/95 backdrop-blur-lg border border-white/10 rounded-lg p-16"
+                className="relative"
               >
-                {/* Premium animated text */}
-                <div className="relative overflow-hidden">
-                  <motion.div
-                    className="relative z-10"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={{
-                      visible: {
-                        transition: {
-                          staggerChildren: 0.05
-                        }
-                      }
-                    }}
-                  >
-                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3 text-center max-w-5xl mx-auto">
-                      {["The", "Future", "Belongs", "to", "Those", "Who", "Code", "It"].map((word, i) => (
-                        <motion.div
-                          key={i}
-                          className="relative"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 100,
-                            damping: 10,
-                            mass: 0.2,
-                            delay: i * 0.08
-                          }}
-                        >
-                          <span className="inline-block mx-1 text-4xl sm:text-5xl md:text-6xl font-bold text-white whitespace-nowrap tracking-wide">
-                            {word}
-                          </span>
-                        </motion.div>
-                      ))}
+                {/* Sophisticated Quote Frame */}
+                <div className="relative w-full max-w-6xl mx-auto py-16 px-6 sm:px-12">
+                  <div className="relative p-8 sm:p-12">
+                    {/* Outer Corner Brackets */}
+                    <div className="absolute top-0 left-0 w-24 h-24">
+                      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-gold-400/50 to-transparent"></div>
+                      <div className="absolute top-0 left-0 h-full w-[2px] bg-gradient-to-b from-gold-400/50 to-transparent"></div>
                     </div>
-                  </motion.div>
+                    <div className="absolute top-0 right-0 w-24 h-24">
+                      <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-gold-400/50 to-transparent"></div>
+                      <div className="absolute top-0 right-0 h-full w-[2px] bg-gradient-to-b from-gold-400/50 to-transparent"></div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 w-24 h-24">
+                      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gold-400/50 to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 h-full w-[2px] bg-gradient-to-t from-gold-400/50 to-transparent"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-24 h-24">
+                      <div className="absolute bottom-0 right-0 w-full h-[2px] bg-gradient-to-l from-gold-400/50 to-transparent"></div>
+                      <div className="absolute bottom-0 right-0 h-full w-[2px] bg-gradient-to-t from-gold-400/50 to-transparent"></div>
+                    </div>
 
-                  {/* Shimmer effect */}
-                  <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-                    <div className="shimmer-line" />
+                    {/* Inner Corner Brackets - Slightly Smaller and Offset */}
+                    <div className="absolute top-4 left-4 w-20 h-20">
+                      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-gold-400/30 to-transparent"></div>
+                      <div className="absolute top-0 left-0 h-full w-[1px] bg-gradient-to-b from-gold-400/30 to-transparent"></div>
+                    </div>
+                    <div className="absolute top-4 right-4 w-20 h-20">
+                      <div className="absolute top-0 right-0 w-full h-[1px] bg-gradient-to-l from-gold-400/30 to-transparent"></div>
+                      <div className="absolute top-0 right-0 h-full w-[1px] bg-gradient-to-b from-gold-400/30 to-transparent"></div>
+                    </div>
+                    <div className="absolute bottom-4 left-4 w-20 h-20">
+                      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-gold-400/30 to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 h-full w-[1px] bg-gradient-to-t from-gold-400/30 to-transparent"></div>
+                    </div>
+                    <div className="absolute bottom-4 right-4 w-20 h-20">
+                      <div className="absolute bottom-0 right-0 w-full h-[1px] bg-gradient-to-l from-gold-400/30 to-transparent"></div>
+                      <div className="absolute bottom-0 right-0 h-full w-[1px] bg-gradient-to-t from-gold-400/30 to-transparent"></div>
+                    </div>
+
+                    {/* Quote Text */}
+                    <div className="relative flex flex-col items-center justify-center gap-2 py-8">
+                      {/* Text Groups */}
+                      <div className="flex items-center gap-3">
+                        <motion.span
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5 }}
+                          className="text-5xl sm:text-6xl md:text-7xl font-cormorant text-gray-300 font-light tracking-wide [text-shadow:_0_0_30px_rgba(255,255,255,0.15)]"
+                        >
+                          The Future
+                        </motion.span>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <motion.span
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.1 }}
+                          className="text-5xl sm:text-6xl md:text-7xl font-cormorant text-gray-300 font-light tracking-wide [text-shadow:_0_0_30px_rgba(255,255,255,0.15)]"
+                        >
+                          Belongs
+                        </motion.span>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <motion.span
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          className="text-5xl sm:text-6xl md:text-7xl font-cormorant text-gray-300 font-light tracking-wide [text-shadow:_0_0_30px_rgba(255,255,255,0.15)]"
+                        >
+                          to Those
+                        </motion.span>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <motion.span
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          className="text-5xl sm:text-6xl md:text-7xl font-cormorant text-gray-300 font-light tracking-wide [text-shadow:_0_0_30px_rgba(255,255,255,0.15)]"
+                        >
+                          Who
+                        </motion.span>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <motion.span
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.4 }}
+                          className="text-5xl sm:text-6xl md:text-7xl font-cormorant text-gray-300 font-light tracking-wide [text-shadow:_0_0_30px_rgba(255,255,255,0.15)]"
+                        >
+                          Code It
+                        </motion.span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                {/* Accent lines with enhanced animation */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#0ea4e9] to-transparent animate-gradient-x" />
-                  <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#0ea4e9] to-transparent animate-gradient-x-reverse" />
-                  <div className="absolute top-0 left-0 w-[1px] h-full bg-gradient-to-b from-transparent via-[#0ea4e9] to-transparent animate-gradient-y" />
-                  <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-transparent via-[#0ea4e9] to-transparent animate-gradient-y" />
-                </div>
-
-                {/* Premium background effects */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0F2645]/50 via-[#0A1525]/60 to-black/70 opacity-80 backdrop-blur-xl" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(14,164,233,0.1),transparent_70%)]" />
               </motion.div>
 
               <style jsx global>{`
@@ -371,6 +425,32 @@ export default function AboutPage() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          <motion.div
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 hidden sm:block"
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gold-400">
+              <path
+                d="M12 5l-1.545 1.545 3.47 3.47H5v2.17h8.925l-3.47 3.47L12 17.2l6.17-6.1L12 5z"
+                fill="currentColor"
+              />
+            </svg>
+          </motion.div>
+
+          <div className="absolute inset-0 w-full h-full opacity-20">
+            <div className="w-full h-full" style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgb(107 114 128) 1px, transparent 0)`,
+              backgroundSize: '30px 30px'
+            }}></div>
           </div>
         </div>
       </div>

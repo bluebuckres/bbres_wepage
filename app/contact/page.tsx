@@ -98,10 +98,10 @@ export default function ContactPage() {
                   </a>
 
                   <a href="mailto:connect@bluebuckresearch.com"
-                    className="group flex items-center space-x-3 p-3 rounded-lg bg-[#0F2645]/50 hover:bg-[#0F2645] transition-all duration-300"
+                    className="flex items-center gap-2 px-6 py-4 text-lg text-blue-400 bg-[#0B1221] rounded-lg hover:bg-[#0f1729] transition-colors duration-200"
                   >
-                    <Mail className="h-5 w-5 flex-shrink-0 text-[#0ea4e9]" />
-                    <span className="text-gray-300 group-hover:text-[#0ea4e9] transition-colors duration-300 break-all">
+                    <Mail className="flex-shrink-0" />
+                    <span className="whitespace-nowrap overflow-hidden text-ellipsis">
                       connect@bluebuckresearch.com
                     </span>
                   </a>
