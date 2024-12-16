@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ParticlesBackground } from "../particles-background";
 import Image from 'next/image';
-import { CircuitPattern } from "../circuit-pattern";
 
 const words = [
   "Quantitative Trading",
@@ -86,27 +85,6 @@ export function HeroSection() {
         />
       </div>
       
-      {/* Circuit Patterns */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Top Left Pattern */}
-        <div className="absolute -left-[5%] sm:-left-[10%] -top-[5%] sm:-top-[10%] w-[90%] sm:w-[80%] h-[90%] sm:h-[80%] text-blue-400/20">
-          <CircuitPattern className="w-full h-full" />
-        </div>
-        
-        {/* Bottom Right Pattern */}
-        <div className="absolute -right-[5%] sm:-right-[10%] -bottom-[5%] sm:-bottom-[10%] w-[90%] sm:w-[80%] h-[90%] sm:h-[80%] text-blue-400/20">
-          <CircuitPattern className="w-full h-full" rotate />
-        </div>
-
-        {/* Middle Patterns - Hidden on mobile, visible on larger screens */}
-        <div className="hidden sm:block absolute right-[20%] top-[30%] w-[40%] h-[40%] text-blue-400/10">
-          <CircuitPattern className="w-full h-full" />
-        </div>
-        <div className="hidden sm:block absolute left-[25%] bottom-[20%] w-[35%] h-[35%] text-blue-400/10">
-          <CircuitPattern className="w-full h-full" rotate />
-        </div>
-      </div>
-
       {/* Spotlight Effect */}
       <div className="absolute left-1/2 top-0 z-0 w-[150%] md:w-full h-[40vh] -translate-x-1/2 overflow-hidden pointer-events-none opacity-60">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
