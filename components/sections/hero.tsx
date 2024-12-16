@@ -89,20 +89,20 @@ export function HeroSection() {
       {/* Circuit Patterns */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Top Left Pattern */}
-        <div className="absolute -left-[10%] -top-[10%] w-[80%] h-[80%] text-blue-400/20">
+        <div className="absolute -left-[5%] sm:-left-[10%] -top-[5%] sm:-top-[10%] w-[90%] sm:w-[80%] h-[90%] sm:h-[80%] text-blue-400/20">
           <CircuitPattern className="w-full h-full" />
         </div>
         
-        {/* Upper Right Pattern */}
-        <div className="absolute -right-[10%] -top-[10%] w-[80%] h-[80%] text-blue-400/20">
+        {/* Bottom Right Pattern */}
+        <div className="absolute -right-[5%] sm:-right-[10%] -bottom-[5%] sm:-bottom-[10%] w-[90%] sm:w-[80%] h-[90%] sm:h-[80%] text-blue-400/20">
           <CircuitPattern className="w-full h-full" rotate />
         </div>
 
-        {/* Middle Patterns */}
-        <div className="absolute right-[20%] top-[40%] w-[40%] h-[40%] text-blue-400/10">
+        {/* Middle Patterns - Hidden on mobile, visible on larger screens */}
+        <div className="hidden sm:block absolute right-[20%] top-[30%] w-[40%] h-[40%] text-blue-400/10">
           <CircuitPattern className="w-full h-full" />
         </div>
-        <div className="absolute left-[25%] bottom-[20%] w-[35%] h-[35%] text-blue-400/10">
+        <div className="hidden sm:block absolute left-[25%] bottom-[20%] w-[35%] h-[35%] text-blue-400/10">
           <CircuitPattern className="w-full h-full" rotate />
         </div>
       </div>
@@ -168,15 +168,15 @@ export function HeroSection() {
             {/* Primary Gradient */}
             <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" style={{ stopColor: '#4A90E2', stopOpacity: 0.4 }}>
-                <animate attributeName="stop-opacity"
-                         values="0.4;0.6;0.4"
-                         dur="3s"
+                <animate attributeName="stop-opacity" 
+                         values="0.4;0.6;0.4" 
+                         dur="3s" 
                          repeatCount="indefinite"/>
               </stop>
               <stop offset="100%" style={{ stopColor: '#50E3C2', stopOpacity: 0.2 }}>
-                <animate attributeName="stop-opacity"
-                         values="0.2;0.4;0.2"
-                         dur="3s"
+                <animate attributeName="stop-opacity" 
+                         values="0.2;0.4;0.2" 
+                         dur="3s" 
                          repeatCount="indefinite"/>
               </stop>
             </linearGradient>
@@ -184,33 +184,33 @@ export function HeroSection() {
             {/* Secondary Gradient */}
             <linearGradient id="techGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" style={{ stopColor: '#FF6B6B', stopOpacity: 0.3 }}>
-                <animate attributeName="stop-opacity"
-                         values="0.3;0.5;0.3"
-                         dur="4s"
+                <animate attributeName="stop-opacity" 
+                         values="0.3;0.5;0.3" 
+                         dur="4s" 
                          repeatCount="indefinite"/>
               </stop>
               <stop offset="100%" style={{ stopColor: '#FFE66D', stopOpacity: 0.1 }}>
-                <animate attributeName="stop-opacity"
-                         values="0.1;0.3;0.1"
-                         dur="4s"
+                <animate attributeName="stop-opacity" 
+                         values="0.1;0.3;0.1" 
+                         dur="4s" 
                          repeatCount="indefinite"/>
               </stop>
             </linearGradient>
 
             {/* Floating Animation */}
-            <animate id="floatAnim"
-                    attributeName="transform"
-                    values="translate(0,0); translate(0,-10px); translate(0,0)"
-                    dur="5s"
+            <animate id="floatAnim" 
+                    attributeName="transform" 
+                    values="translate(0,0); translate(0,-10px); translate(0,0)" 
+                    dur="5s" 
                     repeatCount="indefinite"/>
           </defs>
 
           {/* Background with subtle grid */}
           <g opacity="0.3">
             <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10"
-                    fill="none"
-                    stroke="url(#techGradient2)"
+              <path d="M 10 0 L 0 0 0 10" 
+                    fill="none" 
+                    stroke="url(#techGradient2)" 
                     strokeWidth="0.5"/>
             </pattern>
             <rect width="100%" height="100%" fill="url(#smallGrid)" opacity="0.1"/>
@@ -221,10 +221,10 @@ export function HeroSection() {
             {/* Central Design Element */}
             <g transform="translate(200, 200)">
               {/* Rotating Circles */}
-              <circle r="60"
-                      fill="none"
-                      stroke="url(#techGradient)"
-                      strokeWidth="1"
+              <circle r="60" 
+                      fill="none" 
+                      stroke="url(#techGradient)" 
+                      strokeWidth="1" 
                       opacity="0.6">
                 <animateTransform attributeName="transform"
                                 type="rotate"
@@ -234,10 +234,10 @@ export function HeroSection() {
                                 repeatCount="indefinite"/>
               </circle>
               
-              <circle r="40"
-                      fill="none"
-                      stroke="url(#techGradient2)"
-                      strokeWidth="1"
+              <circle r="40" 
+                      fill="none" 
+                      stroke="url(#techGradient2)" 
+                      strokeWidth="1" 
                       opacity="0.8">
                 <animateTransform attributeName="transform"
                                 type="rotate"
@@ -248,8 +248,8 @@ export function HeroSection() {
               </circle>
 
               {/* Pulsing Inner Circle */}
-              <circle r="20"
-                      fill="url(#techGradient2)"
+              <circle r="20" 
+                      fill="url(#techGradient2)" 
                       opacity="0.3">
                 <animate attributeName="r"
                          values="20;25;20"
@@ -265,8 +265,8 @@ export function HeroSection() {
             {/* Floating Geometric Elements */}
             <g>
               {/* Small Decorative Elements */}
-              <path d="M 100 150 L 120 150 L 110 130 Z"
-                    fill="url(#techGradient)"
+              <path d="M 100 150 L 120 150 L 110 130 Z" 
+                    fill="url(#techGradient)" 
                     opacity="0.4">
                 <animateTransform attributeName="transform"
                                 type="translate"
@@ -275,8 +275,8 @@ export function HeroSection() {
                                 repeatCount="indefinite"/>
               </path>
               
-              <path d="M 280 250 L 300 250 L 290 230 Z"
-                    fill="url(#techGradient2)"
+              <path d="M 280 250 L 300 250 L 290 230 Z" 
+                    fill="url(#techGradient2)" 
                     opacity="0.4">
                 <animateTransform attributeName="transform"
                                 type="translate"
@@ -286,8 +286,8 @@ export function HeroSection() {
               </path>
 
               {/* Dots */}
-              <circle cx="150" cy="280" r="3"
-                      fill="url(#techGradient)"
+              <circle cx="150" cy="280" r="3" 
+                      fill="url(#techGradient)" 
                       opacity="0.6">
                 <animate attributeName="opacity"
                          values="0.6;0.8;0.6"
@@ -295,8 +295,8 @@ export function HeroSection() {
                          repeatCount="indefinite"/>
               </circle>
               
-              <circle cx="250" cy="180" r="3"
-                      fill="url(#techGradient2)"
+              <circle cx="250" cy="180" r="3" 
+                      fill="url(#techGradient2)" 
                       opacity="0.6">
                 <animate attributeName="opacity"
                          values="0.6;0.8;0.6"
