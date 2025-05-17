@@ -3,7 +3,6 @@ import Image from "next/image";
 
 const navigation = [
   { name: "Solutions", href: "/solutions/trading-systems" },
-  { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
 

@@ -240,18 +240,7 @@ export function Navigation() {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/careers" legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={cn(
-                      "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors hover:text-[#0ea4e9] focus:text-[#0ea4e9] focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                      pathname === "/careers" && "text-[#0ea4e9]"
-                    )}
-                  >
-                    Careers
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
+
               <NavigationMenuItem>
                 <Link href="/contact" legacyBehavior passHref>
                   <NavigationMenuLink
@@ -358,16 +347,7 @@ export function Navigation() {
               >
                 About
               </Link>
-              <Link 
-                href="/careers"
-                className={cn(
-                  "px-4 py-2 text-sm font-medium text-white hover:text-[#0ea4e9]",
-                  pathname === "/careers" && "text-[#0ea4e9]"
-                )}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Careers
-              </Link>
+
               <Link 
                 href="/contact"
                 className={cn(

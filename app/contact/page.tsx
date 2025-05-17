@@ -77,9 +77,9 @@ export default function ContactPage() {
                   <div className="pl-7">
                     <address className="not-italic text-gray-300 leading-relaxed">
                       BlueBuck Research<br />
-                      Street No. 0312, DH Block<br />
-                      Action Area 1D, Newtown<br />
-                      Rajarhat, Kolkata, India
+                      4G KrishtiKunja, Kaikhali Main Road,<br />
+                      Near Muthoot Finance,<br />
+                      Airport, Kolkata, India
                     </address>
                   </div>
                 </div>
