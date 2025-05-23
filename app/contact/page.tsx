@@ -136,7 +136,7 @@ export default function ContactPage() {
                       id="name"
                       name="name"
                       className="w-full p-3 bg-[#0F2645]/50 border border-[#0ea4e9]/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#0ea4e9]/50 transition-colors duration-300"
-                      placeholder="John Doe"
+                      placeholder="Paul S"
                       required
                     />
                   </div>
@@ -150,7 +150,7 @@ export default function ContactPage() {
                       id="email"
                       name="email"
                       className="w-full p-3 bg-[#0F2645]/50 border border-[#0ea4e9]/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#0ea4e9]/50 transition-colors duration-300"
-                      placeholder="john@example.com"
+                      placeholder="paulsbbrs@example.com"
                       required
                     />
                   </div>
